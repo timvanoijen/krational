@@ -9,19 +9,11 @@
 
 This library is suitable for applications that require exact fractions (math, finance rules, puzzles, parsers, etc.).
 
-#### Coordinates
-
-- Group: `io.timvanoijen.github`
-- Artifact: `krational`
-- Version: `1.0-SNAPSHOT`
-
-Adjust the version as needed.
-
 #### Gradle (Kotlin DSL)
 
 ```kotlin
 dependencies {
-    implementation("nl.timvanoijen.github:krational:1.0-SNAPSHOT")
+    implementation("io.github.timvanoijen.kotlin:krational:1.0-SNAPSHOT")
 }
 ```
 
@@ -29,7 +21,7 @@ dependencies {
 
 ```xml
 <dependency>
-  <groupId>nl.timvanoijen.github</groupId>
+  <groupId>io.github.timvanoijen.kotlin</groupId>
   <artifactId>krational</artifactId>
   <version>1.0-SNAPSHOT</version>
 </dependency>
