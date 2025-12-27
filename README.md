@@ -1,5 +1,6 @@
 ### krational — Simple Kotlin Rational Numbers
 
+[![Gradle build](https://github.com/timvanoijen/krational/actions/workflows/gradle.yml/badge.svg)](https://github.com/timvanoijen/krational/actions/workflows/gradle.yml)
 `krational` is a tiny Kotlin library that provides an immutable `Rational` type backed by `java.math.BigInteger`. It focuses on:
 
 - Exact arithmetic with arbitrary precision (no rounding errors)
