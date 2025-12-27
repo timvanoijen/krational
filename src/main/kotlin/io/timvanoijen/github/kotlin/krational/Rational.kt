@@ -8,7 +8,7 @@ import kotlin.times
 @ConsistentCopyVisibility
 data class Rational private constructor(
     val p: BigInteger,
-    val q: BigInteger,
+    val q: BigInteger
 ) {
     fun signum() = if (p.signum() == 0) 0 else if (p.signum() == q.signum()) 1 else -1
 
@@ -29,7 +29,6 @@ data class Rational private constructor(
         }
     }
 }
-
 
 // Infix operator "over" for creating Rationals
 infix fun Int.over(denominator: Int) = Rational.of(this.toBigInt(), denominator.toBigInt())

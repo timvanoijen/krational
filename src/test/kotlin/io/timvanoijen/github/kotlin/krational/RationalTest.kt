@@ -1,6 +1,6 @@
 package io.timvanoijen.github.kotlin.krational
 
-import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import java.math.BigInteger
 
@@ -124,7 +124,7 @@ class RationalTest {
         val reduced = r("8", "12") * r("1", "1")
         assertRQ(reduced, "2", "3")
     }
-    
+
     @Test
     fun infix_over_constructor() {
         // Int over Int
