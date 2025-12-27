@@ -4,7 +4,7 @@ plugins {
     id("com.vanniktech.maven.publish") version "0.33.0"
 }
 
-group = "io.timvanoijen.github.kotlin"
+group = "io.github.timvanoijen.kotlin"
 version = file("version").readText().trim()
 
 repositories {
