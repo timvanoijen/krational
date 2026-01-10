@@ -16,6 +16,8 @@ data class Rational private constructor(
 
     fun toDouble() = p.toDouble() / q.toDouble()
 
+    fun toFloat() = p.toFloat() / q.toFloat()
+
     override fun toString() = "$p/$q"
 
     companion object {
@@ -84,6 +86,30 @@ operator fun BigInteger.plus(other: Rational) = other + this
 operator fun BigInteger.minus(other: Rational) = -other + this
 operator fun BigInteger.times(other: Rational) = (other * this)
 operator fun BigInteger.div(other: Rational) = Rational.of(this * other.q, other.p)
+
+// Operators: Rational -> Double
+operator fun Rational.plus(other: Double) = toDouble() + other
+operator fun Rational.minus(other: Double) = toDouble() - other
+operator fun Rational.times(other: Double) = toDouble() * other
+operator fun Rational.div(other: Double) = toDouble() / other
+
+// Operators: Double -> Rational
+operator fun Double.plus(other: Rational) = this + other.toDouble()
+operator fun Double.minus(other: Rational) = this - other.toDouble()
+operator fun Double.times(other: Rational) = this * other.toDouble()
+operator fun Double.div(other: Rational) = this / other.toDouble()
+
+// Operators: Rational -> Float
+operator fun Rational.plus(other: Float) = toFloat() + other
+operator fun Rational.minus(other: Float) = toFloat() - other
+operator fun Rational.times(other: Float) = toFloat() * other
+operator fun Rational.div(other: Float) = toFloat() / other
+
+// Operators: Float -> Rational
+operator fun Float.plus(other: Rational) = this + other.toFloat()
+operator fun Float.minus(other: Rational) = this - other.toFloat()
+operator fun Float.times(other: Rational) = this * other.toFloat()
+operator fun Float.div(other: Rational) = this / other.toFloat()
 
 private fun Int.toBigInt() = BigInteger.valueOf(this.toLong())
 private fun Long.toBigInt() = BigInteger.valueOf(this)

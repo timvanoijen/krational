@@ -37,6 +37,12 @@ class RationalTest {
     }
 
     @Test
+    fun toFloat_basic() {
+        assertEquals(0.5f, r("1", "2").toFloat(), 1e-6f)
+        assertEquals(-0.75f, r("-3", "4").toFloat(), 1e-6f)
+    }
+
+    @Test
     fun unaryMinus_flipsSignOfNumerator() {
         val a = r("2", "5")
         val b = -a
@@ -105,6 +111,42 @@ class RationalTest {
         assertRQ(five * base, "5", "2")
         assertRQ(base / five, "1", "10") // 2/(4*5) -> 2/20 -> 1/10
         assertRQ(five / base, "10", "1") // (5*4)/2 -> 20/2 -> 10/1
+    }
+
+    @Test
+    fun double_interactions() {
+        val base = r("1", "2") // 0.5
+        val d = 0.3
+
+        // Rational op Double -> Double
+        assertEquals(0.5 + d, base + d, 1e-12)
+        assertEquals(0.5 - d, base - d, 1e-12)
+        assertEquals(0.5 * d, base * d, 1e-12)
+        assertEquals(0.5 / d, base / d, 1e-12)
+
+        // Double op Rational -> Double
+        assertEquals(d + 0.5, d + base, 1e-12)
+        assertEquals(d - 0.5, d - base, 1e-12)
+        assertEquals(d * 0.5, d * base, 1e-12)
+        assertEquals(d / 0.5, d / base, 1e-12)
+    }
+
+    @Test
+    fun float_interactions() {
+        val base = r("1", "2") // 0.5
+        val f = 0.3f
+
+        // Rational op Float -> Float (via Double/Float conversions)
+        assertEquals(0.5f + f, (base + f).toFloat(), 1e-6f)
+        assertEquals(0.5f - f, (base - f).toFloat(), 1e-6f)
+        assertEquals(0.5f * f, (base * f).toFloat(), 1e-6f)
+        assertEquals(0.5f / f, (base / f).toFloat(), 1e-6f)
+
+        // Float op Rational -> Float
+        assertEquals(f + 0.5f, (f + base).toFloat(), 1e-6f)
+        assertEquals(f - 0.5f, (f - base).toFloat(), 1e-6f)
+        assertEquals(f * 0.5f, (f * base).toFloat(), 1e-6f)
+        assertEquals(f / 0.5f, (f / base).toFloat(), 1e-6f)
     }
 
     @Test
