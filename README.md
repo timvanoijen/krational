@@ -82,8 +82,8 @@ Denominator must be non-zero when constructing via `Rational.of` or `over`.
 All four operators are provided between:
 
 - `Rational` and `Rational`
-- `Rational` and `Int`/`Long`/`BigInteger`
-- `Int`/`Long`/`BigInteger` and `Rational` (the numeric value on the left-hand side)
+- `Rational` and `Int`/`Long`/`BigInteger`/`Double`/`Float`
+- `Int`/`Long`/`BigInteger`/`Double`/`Float` and `Rational` (the numeric value on the left-hand side)
 
 Examples:
 
@@ -127,16 +127,12 @@ val l = bi / r              // 10/1
   - `fun Rational.signum(): Int` — returns `-1`, `0`, or `1`
   - `fun Rational.inverse(): Rational`
   - `fun Rational.toDouble(): Double`
+  - `fun Rational.toFloat(): Float`
   - `override fun Rational.toString(): String` — prints `"p/q"`
 - Operators (selected):
   - `+`, `-`, `*`, `/` between `Rational` and `Rational`
-  - Interop: the same operators between `Rational` and `Int`/`Long`/`BigInteger` on either side
+  - Interop: the same operators between `Rational` and `Int`/`Long`/`BigInteger`/`Double`/`Float` on either side
   - Unary minus: `-r`
-
-### Notes
-
-- All arithmetic is exact; it grows the numerator/denominator as needed. Use `toDouble()` only when you explicitly want a floating-point approximation.
-- Because `Rational` uses `BigInteger`, operations are unbounded but may allocate; consider performance implications in tight loops.
 
 ### Development
 
